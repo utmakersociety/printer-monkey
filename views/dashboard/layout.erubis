@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= locals[:title] %></title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/dashboard.css">
+    </head>
+    <body>
+        <div id="container">
+            <div id="navigation">
+                <nav id="dashboard-nav">
+                    <ul class="dash-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Home</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div id="content">
+                <%= yield %>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= locals[:title] %></title>
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/prints.css">
+    </head>
+    <body>
+        <div id="container">
+            <div id="content">
+                <%= yield %>
+            </div>
+        </div>
+        <script src="../js/pegasus.min.js"></script>
+        <script src="../js/print.js"></script>
+    </body>
+</html>
