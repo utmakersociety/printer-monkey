@@ -7,6 +7,7 @@ Sequel.migration do
       FalseClass :completed, :default => false
       DateTime :created_at
       DateTime :updated_at
+      foreign_key :user_id, :null => true
     end
   end
 

@@ -1,0 +1,37 @@
+table {
+  width: 100%;
+  thead {
+    color: rgb(8, 8, 8);
+    tr {
+      border-bottom: 1px solid #bdc7d7;
+    }
+  }
+
+  th {
+    padding: 10px 15px 10px;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    font-weight: normal;
+    color: #4d5664;
+  }
+
+  tbody {
+    color: #3c5060;
+    tr {
+        border-bottom: 1px dashed #bdc7d7;
+    }
+  }
+
+
+  td {
+    font-size: 1.3em;
+    padding: 15px 15px;
+  }
+}
+.number {
+  text-align: right;
+}
+
+.letter {
+  text-align: left;
+}

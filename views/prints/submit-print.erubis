@@ -1,5 +1,5 @@
 <div id="print-form-container">
-    <form id="print-form">
+    <form id="print-form" method="post" action="/prints/submit" enctype="multipart/form-data">
         <fieldset>
             <legend>Submit 3D Print</legend>
             <div class="form-control">
@@ -28,7 +28,7 @@
                 </select>
             </div>
             <div class="form-control">
-                <input name="file" placeholder=".STL" type="file">
+                <input id="upload" name="file" placeholder=".STL" type="file">
                 <br>
                 <label for="file">We only accept .STL files</label>
             </div>
