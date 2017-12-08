@@ -16,14 +16,6 @@ jobId.addEventListener("change", function(event) {
 });
 
 
-uploader.addEventListener("change", function(event) {
-    var files = event.target.files;
-    for (var i = 0; i < files.length; i++) {
-        file["name"] = files[i].name;
-        file["size"] = files[i].size;
-    }
-}, false);
-
 print.addEventListener("submit", function(event) {
     event.preventDefault();
     var file = uploader.files[0];

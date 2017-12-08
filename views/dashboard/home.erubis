@@ -1,21 +1,21 @@
 <div id="jobs-container">
   <table id="jobs">
     <thead>
-      <tr>
-        <th class="number">
-          ID
-        </th>
-        <th class="letter">
-          Name
-        </th>
-        <th class="number">
-          Prints 
-        </th>
-        <th class="letter">
-          Approved
-        </th>
-        <th>
-        </th>
+      <tr>  
+          <th class="number">
+            ID
+          </th>
+          <th class="letter">
+            Name
+          </th>
+          <th class="number">
+            Prints 
+          </th>
+          <th class="letter">
+            Completed
+          </th>
+          <th>
+          </th>
       </tr>
     </thead>
     <tbody id="jobsList">

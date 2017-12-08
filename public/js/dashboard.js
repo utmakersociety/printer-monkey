@@ -1,10 +1,20 @@
+"use strict";
+
 var jobs = document.getElementById("jobs");
 
 jobs.addEventListener("click", function(event) {
   var arrow = event.target;
   //console.log(arrow);
-  if (arrow.tagName === "span" || arrow.tagName === "span") {
-    console.log(arrow);
+  if (arrow.tagName === "span" || arrow.tagName === "SPAN") {
+    if (arrow.getAttribute("data-clicked") === "false") {
+      console.log(arrow);
+      arrow.setAttribute("data-clicked" ,"true");
+      arrow.setAttribute("class", "fa fa-chevron-up table-dropdown")
+    } else {
+      console.log(arrow);
+      arrow.setAttribute("data-clicked", false);
+      arrow.setAttribute("class", "fa fa-chevron-down table-dropdown")
+    }
   }
 });
 
@@ -13,7 +23,7 @@ function showControls(arrow) {
 }
 
 function generateTable(data) {
-   prints = document.getElementById("jobsList");
+   var prints = document.getElementById("jobsList");
    for(var i = 0; i < data.length; i++) {
     var row = document.createElement("tr");
     var id = document.createElement("td");
@@ -35,7 +45,8 @@ function generateTable(data) {
     } else {
       approved.appendChild(approvedIcon);
     }
-    arrowIcon.setAttribute("class", "fa fa-chevron-down");
+    arrowIcon.setAttribute("class", "fa fa-chevron-down table-dropdown");
+    arrowIcon.setAttribute("data-clicked", "false");
     arrow.appendChild(arrowIcon);
     
     row.appendChild(id);

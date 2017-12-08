@@ -1,9 +1,10 @@
 table {
   width: 100%;
+  border-collapse: collapse;
   thead {
     color: rgb(8, 8, 8);
     tr {
-      border-bottom: 1px solid #bdc7d7;
+      border-bottom: 1px solid #000;
     }
   }
 
@@ -18,7 +19,7 @@ table {
   tbody {
     color: #3c5060;
     tr {
-        border-bottom: 1px dashed #bdc7d7;
+        border-bottom: 1px dashed #000;
     }
   }
 
@@ -28,6 +29,7 @@ table {
     padding: 15px 15px;
   }
 }
+
 .number {
   text-align: right;
 }

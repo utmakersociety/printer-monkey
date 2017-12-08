@@ -8,12 +8,13 @@ class Job < Sequel::Model(:jobs)
     prints = []
     self.prints.each do |p|
       print = {
+        id: p.id,
         file_preview: p.file_preview,
         filename: p.filename,
         path: p.path,
         filetype: p.filetype,
         filesize: p.filesize,
-        approved: p.approved,
+        approved: p.completed,
         created_at: p.created_at
       }
       prints.push(print)

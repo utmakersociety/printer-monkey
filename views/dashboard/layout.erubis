@@ -11,12 +11,12 @@
         <div id="container">
             <div id="navigation">
                 <nav id="dashboard-nav">
-                    <ul class="dash-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Home</a></li>
+                    <ul id="nav-menu">
+                        <li><a class="dash-link" href="#">Home</a></li>
+                        <li><a class="dash-link" href="#">Home</a></li>
+                        <li><a class="dash-link"href="#">Home</a></li>
+                        <li><a class="dash-link"href="#">Home</a></li>
+                        <li><a class="dash-link" href="#">Home</a></li>
                     </ul>
                 </nav>
             </div>
