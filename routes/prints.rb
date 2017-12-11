@@ -24,7 +24,7 @@ PrinterMonkey.route('prints') do |r|
           response["Content-Type"] = "application/json"
           response.status = 200
           {:response => "ok",
-          :msg => "File uploaded successfully"}.to_json
+           :msg => "File uploaded successfully"}.to_json
         else        
         end
       else
@@ -42,7 +42,7 @@ PrinterMonkey.route('prints') do |r|
           response["Content-Type"] = "application/json"
           response.status = 200
           {:response => "ok",
-          :msg => "File uploaded successfully"}.to_json
+           :msg => "File uploaded successfully"}.to_json
         end
       end
     end

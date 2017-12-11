@@ -41,6 +41,14 @@
   cursor: pointer;
 }
 
+.print-row {
+  display: initial;
+}
+
+.print-row-hidden {
+  display: none;
+}
+
 #content {
   padding: 20px;
   margin-left: 15%;

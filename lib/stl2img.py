@@ -7,11 +7,22 @@ import math
 import os
 import sys
 
-parser = argparse.ArgumentParser()
+
 context.scene.unit_settings.system='METRIC'
 scene = context.scene
 camera = data.objects["Camera"]
 
+def command_args():
+    parser = argparse.ArgumentParser()
+    try:
+        index = sys.argv.index("--") + 1
+    except ValueError:
+        index = len(sys.argv())
+    
+    args = parse.parse_args(sys.argv[index:]).__dict__
+    
+    return args
+    
 def delete_by_obj_name(name):
     scene = context.scene
     for ob in scene.objects:
@@ -28,23 +39,28 @@ delete_by_obj_name("Lamp")
 
 
 def open_mesh(path, scale=0.9):
+    # open an stl file and the select it
     ops.import_mesh.stl(filepath=path, filter_glob="*.stl")
     mesh = context.selected_objects[0]
     mesh.select = True
+    # prevent scaling if mesh is max sizes
+    max_length = max(mesh.dimensions)
     if max_length == 0:
         pass
     else:
         scale_factor = 1 / (max_length / scale)
         mesh.scale = (scale_factor, scale_factor, scale_factor)
+    # set mesh to center of the origin
     ops.object.origin_set(type="GEOMETRY_ORIGIN")
     return mesh
 
 mesh = open_mesh("C:/\/Users/\/mille/\/Documents/\/Projects/\/cadian_laspistol.stl")
-max_length = max(mesh.dimensions)
+
 
 
 material = data.materials.new(name="ObjectColoring")
 
+# move camera to show model in view
 for obj in scene.objects:
     obj.select = False
 for obj in context.visible_objects:
@@ -68,6 +84,7 @@ lamp_object.location = (camera.location.x-15, camera.location.y-5, camera.locati
 lamp_object.select = True
 scene.objects.active = lamp_object
 
+# apply material to mesh and make it blue
 mesh.data.materials.append(material)
 data.materials['ObjectColoring'].diffuse_color = (0, 1,100)
 
