@@ -1,7 +1,29 @@
 @import 'base';
+@import 'variables';
+@import 'components/buttons';
 @import 'components/forms';
+@import 'components/progress-bar';
+
+#uploadProgress {
+    @include z-index-1;
+    margin: 20px auto;
+}
 
 #print-form-container {
     width: 50%;
     margin: 0 auto;
+}
+
+#uploadControl {
+    padding: 10px;
+    border: 2px solid #313131;
+    border-radius: 5px;
+}
+
+#selectedFile {
+    padding-left: 20px;
+}
+
+#fileLabel {
+    padding: 20px 0 5px;
 }

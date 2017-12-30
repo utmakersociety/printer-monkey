@@ -8,6 +8,7 @@ Sequel.migration do
       String :filetype, :null => false
       Fixnum :filesize
       String :filament
+      Fixnum :status, default: 0
       FalseClass :completed, :default => false
       DateTime :created_at
       DateTime :updated_at

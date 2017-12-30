@@ -1,11 +1,17 @@
 @import 'base';
-@import "components/table";
+@import 'components/buttons';
+@import 'components/table';
+
+body {
+  background: #fcfcfc;
+}
 
 #dashboard-nav {
+  background: #ebebeb;
   position: fixed;
   border-right: 1px solid #cacaca;
   height: 100%;
-  width: 15%;
+  width: 150px;
 }
 
 #nav-menu {
@@ -15,25 +21,30 @@
   li {
     display: block;
     position: relative;
-    font-size: 1.2em;
+    font-size: 1em;
     width: 100%;
     border-bottom: 1px solid #cacaca;
   }
 }
 
 .dash-link {
-  position: relative;
   display: block;
-  left: 20px;
   width: 100%;
   height: 100%;
-  font-size: 1.6em;
+  font-size: 1.4em;
   text-decoration: none;
-  text-align: left;
-  padding: 15px 15px 15px 0;
-  
-  &:hover, &:focus {
+  padding: 25px 15px 25px 0;
+  color: #313131;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  &:hover {
+    background: #eee;
     width: 93%;
+  }
+  i {
+    font-size: 2em;
+    display: block;
   }
 }
 
@@ -42,7 +53,14 @@
 }
 
 .print-row {
-  display: initial;
+  table {
+    width: 100%;
+    border: none;
+  }
+
+  thead {
+    background: #eee;
+  }
 }
 
 .print-row-hidden {
@@ -50,7 +68,24 @@
 }
 
 #content {
+  background: #fcfcfc;
   padding: 20px;
   margin-left: 15%;
 }
 
+.prints-table {
+  thead {
+    th {
+      font-weight: bold;
+      font-size: 1em;
+    }
+  }
+
+  td {
+    font-size: 1em;
+  }
+}
+
+.download-link {
+  font-size: 1.3em !important;
+}

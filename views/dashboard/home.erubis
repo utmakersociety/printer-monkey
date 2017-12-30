@@ -2,7 +2,7 @@
   <table id="jobs">
     <thead>
       <tr>  
-          <th class="number">
+          <th class="table-controls">
             ID
           </th>
           <th class="letter">
@@ -11,7 +11,7 @@
           <th class="number">
             Prints 
           </th>
-          <th class="letter">
+          <th class="table-controls">
             Completed
           </th>
           <th>

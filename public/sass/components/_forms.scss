@@ -1,5 +1,15 @@
 form {
     font-size: 1.6em;
+
+    legend {
+        font-size: 2em;
+        margin: 5% 0 2%;
+    }
+
+    input {
+        font-family: 'Montserrat', san-serif;
+    }
+
     fieldset {
         border: none;
     }
@@ -13,10 +23,24 @@ form {
         width: 100%;
         padding: 8px;
     }
+
+    input[type="file"] {
+        display: none;
+    }
+
+    select {
+        padding: 5px 8px;
+        font-family: 'Montserrat', san-serif;
+    }
+
+    label {
+        display: block;
+        padding-bottom: 5px;
+    }
 }
 
 .form-control {
-    margin: 10px 0;
+    margin: 20px 0;
 }
 
 

@@ -3,8 +3,9 @@
     <head>
         <meta charset="utf-8">
         <title><%= locals[:title] %></title>
-        <link rel="stylesheet" href="../../css/normalize.css">
-        <link rel="stylesheet" href="../../css/prints.css">
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/prints.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
     </head>
     <body>
         <div id="container">
@@ -12,7 +13,7 @@
                 <%= yield %>
             </div>
         </div>
-        <script src="../js/pegasus.min.js"></script>
-        <script src="../../js/print.js"></script>
+        <script src="../js/resumable.js"></script>
+        <script src="../js/print.js"></script>
     </body>
 </html>

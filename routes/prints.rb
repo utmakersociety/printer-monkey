@@ -7,11 +7,12 @@ PrinterMonkey.route('prints') do |r|
     r.post do
       prints = r.params
       if prints["job_id"].empty?
+        file = Uploader::Upload.file(prints["file"])
         job = Job.create do |j|
           j.name = prints["full_name"]
           j.email = prints["email"]
         end
-        file = Uploader::Upload.file(prints["file"])
+        
         if file[:uploaded]
           new_print = Print.new do |p|
             p.filename = file[:filename]

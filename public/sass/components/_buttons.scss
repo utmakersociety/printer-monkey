@@ -1,0 +1,30 @@
+button {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn {
+  border: none;
+  padding: 10px 25px;
+  color: #fff;
+  border-radius: 3px;
+}
+.btn-primary {
+  @extend .btn;
+  background: #313131;
+}
+
+.btn-secondary {
+  @extend .btn;
+  background: #6C7A89;
+}
+
+.table-primary {
+  background: #313131;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 3px;
+}
+
+.table-secondary {
+  background: #6C7A89;
+}

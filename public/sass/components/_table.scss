@@ -2,30 +2,35 @@ table {
   width: 100%;
   border-collapse: collapse;
   thead {
-    color: rgb(8, 8, 8);
+    background: #313131;
+    
     tr {
-      border-bottom: 1px solid #000;
+      border-bottom: 1px solid #cacaca;
+      th {
+        color: #eee;
+        font-weight: bold;
+      }
     }
   }
 
   th {
-    padding: 10px 15px 10px;
+    padding: 15px;
     font-size: 1.5em;
     text-transform: uppercase;
     font-weight: normal;
-    color: #4d5664;
+    color: #111;
   }
 
   tbody {
-    color: #3c5060;
+    color: #222;
     tr {
-        border-bottom: 1px dashed #000;
+        border-bottom: 1px solid #cacaca;
     }
   }
 
 
   td {
-    font-size: 1.3em;
+    font-size: 1.4em;
     padding: 15px 15px;
   }
 }
@@ -36,4 +41,8 @@ table {
 
 .letter {
   text-align: left;
+}
+
+.table-controls {
+  text-align: center;
 }
