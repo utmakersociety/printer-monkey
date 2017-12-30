@@ -14,7 +14,7 @@ group :production do
 end
 
 group :documentation do
-  gem 'yard', '~> 0.8.7.6', :require => false
+  gem 'yard', '~> 0.9.11', :require => false
 end
 
 group :testing, :development do
