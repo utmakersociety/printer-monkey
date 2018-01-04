@@ -1,3 +1,5 @@
+"use strict";
+
 var print = document.getElementById("print-form");
 var jobId = document.getElementById("jobId");
 var fullName = document.getElementById("fullName");

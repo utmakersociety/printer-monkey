@@ -54,7 +54,7 @@ function addPrints(prints) {
   nameHead.innerHTML = "Filename";
   sizeHead.innerHTML = "File Size";
   filamentHead.innerHTML = "Filament Type";
-  fileHead.innerHTML = "Download Link"
+  fileHead.innerHTML = "Options"
   completedHead.innerHTML = "Status";
 
   printsHead.appendChild(nameHead);
@@ -84,6 +84,7 @@ function addPrints(prints) {
     downloadLink.setAttribute("download", prints[i]["filename"]);
     downloadLink.setAttribute("class", "download-link table-primary");
     downloadIcon.setAttribute("class", "fa fa-download");
+    downloadLink.setAttribute("title", "Download File");
     downloadLink.appendChild(downloadIcon);
     download.appendChild(downloadLink);
 

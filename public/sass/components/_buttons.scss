@@ -2,24 +2,25 @@ button {
   font-family: 'Montserrat', sans-serif;
 }
 
-.btn {
+.button {
   border: none;
   padding: 10px 25px;
   color: #fff;
   border-radius: 3px;
 }
-.btn-primary {
-  @extend .btn;
+
+.button-primary {
+  @extend .button;
   background: #313131;
 }
 
-.btn-secondary {
-  @extend .btn;
+.button-secondary {
+  @extend .button;
   background: #6C7A89;
 }
 
 .table-primary {
-  background: #313131;
+  background: #677E84 ;
   color: #fff;
   padding: 5px 15px;
   border-radius: 3px;

@@ -30,20 +30,23 @@
             </div>
             <div class="form-control">
                 <div id="uploadControl">
-                    <button type="button" class="btn-secondary" id="browseButton">Browse</button>
-                    <span id="selectedFile">Please select a model for printing.</span>
-                    <div id="uploadProgress">
-                    <div class="meter red">
-                        <span class="meter-text">0%</span>
-                        <span class="bar"></span>
-                    </div>
+                    <div class="grid">
+                        <div class="grid-4-5 grid-cell browse-container">
+                            <div id="dragFile">Please select a model for printing.</div>
+                        </div>
+                        <div class="grid-1-5 grid-cell">
+                            <div class="button-container">
+                                <button type="button" class="button-secondary" id="browseButton"><i class="fa fa-upload"></i></button>
+                            </div>
+                        </div>
+                        <!--<div id="uploadProgress"></div>-->
                     </div>
                 </div>
                 <input id="upload" name="file" placeholder=".STL" type="file">
                 <label id="fileLabel" for="file">We only accept .STL files</label>
             </div>
             <br>
-            <button class="btn-primary" type="submit">Upload Print</button>
+            <button class="button-primary" type="submit">Upload Print</button>
         </fieldset>
     </form>
 </div>

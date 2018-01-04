@@ -1,7 +1,6 @@
 PrinterMonkey.route('uploads') do |r|
 	r.on 'chunk' do		
 		r.get do
-
 			res_id = r.params["resumableIdentifier"]
 			res_chunk_num = r.params["resumableChunkNumber"].to_i
 			res_filename = r.params["resumableFilename"]
@@ -23,7 +22,6 @@ PrinterMonkey.route('uploads') do |r|
 
 		r.post do
 			res = r.params
-
 			res_id = r.params["resumableIdentifier"]
 			res_chunk_num = r.params["resumableChunkNumber"].to_i
 			res_filename = r.params["resumableFilename"]
@@ -55,7 +53,7 @@ PrinterMonkey.route('uploads') do |r|
 	      #Create a target file
 	      File.open("#{dir}/#{res_filename}","a") do |target|
 	        #Loop trough the chunks
-	        for i in 1..res_chunk_num.to_i
+	        for i in 1..res_chunk_num
 	          #Select the chunk
 	          chunk = File.open("#{dir}/#{res_filename}.part#{i}", 'r').read
 	          
@@ -74,8 +72,5 @@ PrinterMonkey.route('uploads') do |r|
 			response.status = 200
 			""
     end
-	end
-	
-	r.is do
 	end
 end

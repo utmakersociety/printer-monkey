@@ -1,29 +1,47 @@
 @import 'base';
-@import 'variables';
 @import 'components/buttons';
 @import 'components/forms';
+@import 'components/flex';
 @import 'components/progress-bar';
+@import 'variables';
 
 #uploadProgress {
-    @include z-index-1;
-    margin: 20px auto;
+  @include z-index-1;
+  margin: 20px auto;
 }
 
 #print-form-container {
-    width: 50%;
-    margin: 0 auto;
+  width: 50%;
+  margin: 0 auto;
 }
 
 #uploadControl {
-    padding: 10px;
-    border: 2px solid #313131;
-    border-radius: 5px;
+  padding-left: 10px;
+  border: 1px solid #eee;
 }
 
-#selectedFile {
-    padding-left: 20px;
+.button-container {
+  text-align: right;
+  height: 100%;
+}
+
+.browse-container {
+  padding: 10px 0 10px 0;
+}
+
+#browseButton {
+  display: block;
+  height: 100%;
+}
+
+#dragFile {
+  padding: 10px;
+  text-align: center;
+  border: 1px dashed #677E84;
+  border-radius: 5px;
+  height: 100%;
 }
 
 #fileLabel {
-    padding: 20px 0 5px;
+  padding: 20px 0 5px;
 }

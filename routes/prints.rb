@@ -1,4 +1,13 @@
 PrinterMonkey.route('prints') do |r|
+  r.is do
+    response['Content-Type'] = "application/json"
+    print = Print.order(Sequel.asc(:id))
+    print = print.to_hash
+    pp print[1].values.inject({}) do |item, hash|
+    end
+    print[1].to_json
+  end
+
   r.is 'submit' do
     r.get do
       view 'prints/submit-print', layout: 'prints/layout', layout_opts: {locals: {title: "Submit 3D Print"}}

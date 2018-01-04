@@ -1,7 +1,7 @@
 @import 'base';
 @import 'components/buttons';
 @import 'components/table';
-
+@import 'components/flex';
 body {
   background: #fcfcfc;
 }
@@ -45,6 +45,22 @@ body {
   i {
     font-size: 2em;
     display: block;
+  }
+}
+
+#dashboardTitle {
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.dashboard-card {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #eee;
+  h3 {
+    text-align: center;
+    font-size: 1.6em;
+    font-weight: normal;
   }
 }
 

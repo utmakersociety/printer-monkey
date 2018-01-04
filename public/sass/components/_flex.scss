@@ -1,0 +1,40 @@
+.grid {
+  height: 100%;
+  display: flex;
+}
+
+.grid-cell {
+  flex: 1;
+  height: 100%;
+}
+
+.grid-fit{
+  flex: 1;
+}
+
+.grid-full {
+  flex: 0 0 100%;
+}
+
+.grid-1-2{
+  flex: 0 0 50%
+}
+
+.grid-1-3 {
+  flex: 0 0 33.3333%
+}
+
+.grid-1-4 {
+  flex: 0 0 25%
+}
+
+.grid-3-4 {
+  flex: 0 0 75%
+}
+
+.grid-4-5 {
+  flex: 0 0 80%
+}
+.grid-1-5 {
+  flex: 0 0 20%
+}

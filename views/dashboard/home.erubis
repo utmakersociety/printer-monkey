@@ -1,4 +1,27 @@
 <div id="jobs-container">
+  <h1 id="dashboardTitle">User's Dashboard</h1>
+  <div class="grid">
+    <div class="grid-cell grid-1-4">
+      <div class="dashboard-card">
+        <h3>Prints in Queue</h3>
+      </div>
+    </div>
+    <div class="grid-cell grid-1-4">
+      <div class="dashboard-card">
+        <h3>Prints in Queue</h3>
+      </div>
+    </div>
+    <div class="grid-cell grid-1-4">
+      <div class="dashboard-card">
+        <h3>Failed Prints</h3>
+      </div>
+    </div>
+    <div class="grid-cell grid-1-4">
+      <div class="dashboard-card">
+        <h3>Prints Completed</h3>
+      </div>
+    </div>
+  </div>
   <table id="jobs">
     <thead>
       <tr>  
