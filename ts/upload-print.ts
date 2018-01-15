@@ -52,7 +52,7 @@ r.on("fileAdded", function(file: any) {
   fileContainer.appendChild(fileName);
   fileContainer.appendChild(fileClose);
   uploadContainer.appendChild(fileContainer);
-  r.upload();
+  
 });
 
 r.on('fileProgress', function(file: any){
@@ -60,7 +60,6 @@ r.on('fileProgress', function(file: any){
 });
 
 r.on("fileSuccess", (file, message) => {
-  console.log(message);
   uploadedFiles.push(JSON.parse(message));
 })
 
@@ -85,17 +84,22 @@ model.addEventListener("submit", function(event: Event) {
   let formData: any = new FormData(model);
   let fileUpload = new XMLHttpRequest;
 
-  fileUpload.open("POST", model.getAttribute("action"), true);
-  jsonToFormData(formData,  uploadedFiles, "files");
-  fileUpload.addEventListener("readystatechange", function() {
-      if (fileUpload.readyState == XMLHttpRequest.DONE && fileUpload.status == 200) {
+  r.upload();
 
-      } else if (fileUpload.readyState == XMLHttpRequest.DONE && fileUpload.status == 500) {
+  r.on("complete", () => {
+    fileUpload.open("POST", model.getAttribute("action"), true);
+    jsonToFormData(formData,  uploadedFiles, "files");
+    fileUpload.addEventListener("readystatechange", function() {
+        if (fileUpload.readyState == XMLHttpRequest.DONE && fileUpload.status == 200) {
+  
+        } else if (fileUpload.readyState == XMLHttpRequest.DONE && fileUpload.status == 500) {
+  
+        }
+    }, false);
+  
+    fileUpload.send(formData);
+  });
 
-      }
-  }, false);
-
-  fileUpload.send(formData);
   
 
 

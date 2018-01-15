@@ -13,8 +13,16 @@ PrinterMonkey.route('prints') do |r|
     r.post do
       prints = r.params
       if prints["job_id"].empty?
-        #job = Job.create(name: prints["full_name"], email: prints["email"])
-        pp prints
+        job = Job.create(name: prints["full_name"], email: prints["email"])
+        i = 0
+        files = prints["files"]
+        while i < prints["files"].length
+          print = Print[files["#{i}"]["id"]]
+          print.update(filament: prints["filament_type"])
+          job.add_print(print)
+          i+=1
+        end
+        {status: 200, msg: "Job successfully created."}.to_json
       else
         job = Job[prints["job_id"].to_i]
       end

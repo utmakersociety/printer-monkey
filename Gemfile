@@ -7,11 +7,9 @@ gem 'roda'
 gem 'sequel'
 gem 'erubis'
 gem 'tilt'
-gem 'eventmachine', git: 'https://github.com/eventmachine/eventmachine.git', :require => 'eventmachine'
-gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
-gem 'restart'
-gem 'wdm'
-gem 'thin'
+gem 'eventmachine'
+gem 'bcrypt'
+gem 'puma'
 
 group :production do
 end
@@ -27,6 +25,7 @@ group :testing, :development do
   gem 'rspec', '~> 3.4.0'
   gem 'sass', '~> 3.4.20'
   gem 'sqlite3', '~> 1.3.11'
+  gem 'shotgun'
 end
 
 group :testing do

@@ -1,4 +1,3 @@
-require 'thin'
 require 'roda'
 require 'json'
 require 'pp'

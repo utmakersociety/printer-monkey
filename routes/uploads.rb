@@ -28,14 +28,9 @@ PrinterMonkey.route('uploads') do |r|
 			res_chunk_size = r.params["resumableChunkSize"].to_i
 			res_total_size = r.params["resumableTotalSize"].to_i
 			temp_file = r.params["file"][:tempfile]
-			pp temp_file
 	
 			# chunk folder path based on the parameters
-			if OS.windows?
-				dir = "#{Dir.pwd}/tmp/#{res_id}"
-			else
-				dir = "/tmp/#{res_id}"
-			end
+			dir = "/tmp/#{res_id}"
 	    
 	    # chunk path based on the parameters
 	    chunk = "#{dir}/#{res_filename}.part#{res_chunk_num}"
@@ -76,7 +71,7 @@ PrinterMonkey.route('uploads') do |r|
         # You can use the file now
 				puts "File saved to #{file}"
 				file_ext = File.extname(file)
-				if file_ext == ".stl" && File.file?(file)
+				if file_ext == ".stl" || ".STL" && File.file?(file)
 					file_info = Uploader::Upload.process(file)
 					unless file_info.nil?
 						print = Print.create do |p|

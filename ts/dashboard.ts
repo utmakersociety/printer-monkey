@@ -156,6 +156,8 @@ let getPrintInfo = (url: string, callback: (data: string) => any) : void => {
       callback(req.responseText);
     }
   }
+  req.open("GET", url, true);
+  req.send();
 }
 
 getPrintInfo("/jobs", (data) => {
