@@ -1,6 +1,9 @@
 # sqlite database
 db/*.sqlite
 
+# images
+public/uploads/*
+
 # sass output files
 *.map
 public/css/dashboard.css
@@ -15,10 +18,11 @@ public/css/style.css
 vendor
 bin
 
-# Gemfile lock
+# Lock files
 *.lock
 .lock
 Gemfile.lock
+yarn.lock
 
 # remove log files
 logs/*
@@ -29,6 +33,7 @@ node_modules
 docs
 public/.yardoc/*
 public/js/dist/*
+
 # environment variables
 env.rb
 .env.rb

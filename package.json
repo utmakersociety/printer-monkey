@@ -1,0 +1,29 @@
+{
+  "name": "budget-commander",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/millenniumbrain/budget-commander.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/millenniumbrain/budget-commander/issues"
+  },
+  "homepage": "https://github.com/millenniumbrain/budget-commander#readme",
+  "devDependencies": {
+    "@types/jquery": "^2.0.41",
+    "jquery": "^3.2.1",
+    "source-map-loader": "^0.2.1",
+    "ts-loader": "^2.0.3",
+    "typescript": "^2.2.2",
+    "webpack": "^2.3.3",
+    "webpack-dev-server": "2",
+    "uglify-js": "3.3.5"
+  }
+}

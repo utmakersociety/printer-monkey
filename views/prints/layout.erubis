@@ -15,6 +15,6 @@
             </div>
         </div>
         <script src="../js/resumable.js"></script>
-        <script src="../js/print.js"></script>
+        <script src="../js/model_upload.js"></script>
     </body>
 </html>

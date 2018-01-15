@@ -8,7 +8,7 @@
     </div>
     <div class="grid-cell grid-1-4">
       <div class="dashboard-card">
-        <h3>Prints in Queue</h3>
+        <h3>Time to Completetion</h3>
       </div>
     </div>
     <div class="grid-cell grid-1-4">
@@ -18,7 +18,7 @@
     </div>
     <div class="grid-cell grid-1-4">
       <div class="dashboard-card">
-        <h3>Prints Completed</h3>
+        <h3>Prints Ready for Pickup</h3>
       </div>
     </div>
   </div>

@@ -1,4 +1,4 @@
-require 'puma'
+require 'thin'
 require 'roda'
 require 'json'
 require 'pp'
@@ -24,7 +24,7 @@ class PrinterMonkey < Roda
   plugin :multi_route
   plugin :render_locals
   plugin :render, :engine => 'erubis', :views => 'views'
-  plugin :static, ['/js', '/css']
+  plugin :static, ['/js', '/css', '/fonts']
   plugin :flash
   plugin :h
   plugin :multi_route

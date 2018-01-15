@@ -6,7 +6,7 @@ Sequel.migration do
       DateTime :started_at
       DateTime :finished_at
       DateTime :updated_at
-      foreign_key :print_id
+      DateTime :created_at
     end
   end
 

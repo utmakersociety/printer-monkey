@@ -13,6 +13,7 @@ Sequel.migration do
       DateTime :created_at
       DateTime :updated_at
       foreign_key :job_id
+      foreign_key :queue_id
     end
   end
 

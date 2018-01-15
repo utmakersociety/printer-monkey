@@ -16,7 +16,7 @@
                 <input id="email" name="email" type="email" placeholder="example@email.com">
             </div>
             <div class="form-control">
-                <label>Phone Number</label>
+                <label>Phone Number (Optional)</label>
                 <input id="phoneNum" name="phone_num" placeholder="(000) 000-0000" type="text">
             </div>
             <div class="form-control">
@@ -28,11 +28,11 @@
                     <option>Nylon (+$5.00)</option>
                 </select>
             </div>
-            <div class="form-control">
+            <div id="uploadContainer" class="form-control">
                 <div id="uploadControl">
                     <div class="grid">
                         <div class="grid-4-5 grid-cell browse-container">
-                            <div id="dragFile">Please select a model for printing.</div>
+                            <div id="dragFile"><span>Drag your model or zip file here.<span></div>
                         </div>
                         <div class="grid-1-5 grid-cell">
                             <div class="button-container">
@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <input id="upload" name="file" placeholder=".STL" type="file">
-                <label id="fileLabel" for="file">We only accept .STL files</label>
+                <label id="fileLabel" for="file">We only accept individual or zipped .STL files</label>
             </div>
             <br>
             <button class="button-primary" type="submit">Upload Print</button>

@@ -3,9 +3,6 @@ PrinterMonkey.route('prints') do |r|
     response['Content-Type'] = "application/json"
     print = Print.order(Sequel.asc(:id))
     print = print.to_hash
-    pp print[1].values.inject({}) do |item, hash|
-    end
-    print[1].to_json
   end
 
   r.is 'submit' do
@@ -16,44 +13,10 @@ PrinterMonkey.route('prints') do |r|
     r.post do
       prints = r.params
       if prints["job_id"].empty?
-        file = Uploader::Upload.file(prints["file"])
-        job = Job.create do |j|
-          j.name = prints["full_name"]
-          j.email = prints["email"]
-        end
-        
-        if file[:uploaded]
-          new_print = Print.new do |p|
-            p.filename = file[:filename]
-            p.path = file[:path_name]
-            p.filetype = file[:type]
-            p.filesize = file[:size]
-            p.filament = prints["filament_type"]
-          end
-          job.add_print(new_print)
-          response["Content-Type"] = "application/json"
-          response.status = 200
-          {:response => "ok",
-           :msg => "File uploaded successfully"}.to_json
-        else        
-        end
+        #job = Job.create(name: prints["full_name"], email: prints["email"])
+        pp prints
       else
-        job = Job[prints["job_id"]]
-        file = Uploader::Upload.file(prints["file"])
-        if file[:uploaded]
-          new_print = Print.new do |p|
-            p.filename = file[:filename]
-            p.path = file[:path_name]
-            p.filetype = file[:type]
-            p.filesize = file[:size]
-            p.filament = prints["filament_type"]
-          end
-          job.add_print(new_print)
-          response["Content-Type"] = "application/json"
-          response.status = 200
-          {:response => "ok",
-           :msg => "File uploaded successfully"}.to_json
-        end
+        job = Job[prints["job_id"].to_i]
       end
     end
   end

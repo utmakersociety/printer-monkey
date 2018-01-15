@@ -101,6 +101,10 @@ form {
   margin: 0 auto; }
 
 #uploadControl {
+  position: relative;
+  width: 80%;
+  height: 90px;
+  margin: 0 auto;
   padding-left: 10px;
   border: 1px solid #eee; }
 
@@ -108,19 +112,44 @@ form {
   text-align: right;
   height: 100%; }
 
-.browse-container {
-  padding: 10px 0 10px 0; }
-
 #browseButton {
+  position: absolute;
+  right: 0;
   display: block;
-  height: 100%; }
+  height: 100%;
+  font-size: 1.3em;
+  padding: 0 40px;
+  border-radius: 0; }
+  #browseButton:hover {
+    background: #4e5863;
+    cursor: pointer; }
 
 #dragFile {
+  margin-top: 12px;
   padding: 10px;
   text-align: center;
   border: 1px dashed #677E84;
   border-radius: 5px;
-  height: 100%; }
+  height: 50%; }
+  #dragFile span {
+    position: relative;
+    top: 25%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%); }
 
 #fileLabel {
   padding: 20px 0 5px; }
+
+.file {
+  border: 1px solid #000;
+  margin: 5px 0;
+  padding: 10px;
+  position: relative; }
+
+.file-close {
+  position: absolute;
+  right: 10px; }
+  .file-close i {
+    display: inline-block;
+    cursor: pointer; }
