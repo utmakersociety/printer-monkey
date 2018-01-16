@@ -3,33 +3,33 @@
 
 declare var Resumable: any;
 
-let model = <HTMLFormElement>document.getElementById("print-form");
-let jobId = <HTMLInputElement>document.getElementById("jobId");
-let fullName = document.getElementById("fullName");
-let email = document.getElementById("email");
-let number = document.getElementById("phoneNum");
-let browse = document.getElementById("browseButton");
-let uploader = <HTMLInputElement>document.getElementById("upload");
-let progress = document.getElementById("uploadProgress");
-let fileCount = 0;
-let uploadedFiles: Array<any> = [];
+const model = <HTMLFormElement>document.getElementById("print-form");
+const jobId = <HTMLInputElement>document.getElementById("jobId");
+const fullName = document.getElementById("fullName");
+const email = document.getElementById("email");
+const number = document.getElementById("phoneNum");
+const browse = document.getElementById("browseButton");
+const uploader = <HTMLInputElement>document.getElementById("upload");
+const progress = document.getElementById("uploadProgress");
+const fileCount = 0;
+const uploadedFiles: Array<any> = [];
 
-let r = new Resumable({
-  target:'/uploads/chunk',
+const r = new Resumable({
+  target:'/prints/chunk',
 });
 
 r.assignBrowse(uploader, false);
-browse.addEventListener("click", function(event) {
+browse.addEventListener("click", (event: Event) : void => {
   uploader.click();
 });
 
-r.on("fileAdded", function(file: any) {
-  let uploadContainer = document.getElementById("uploadContainer");
-  let fileInfo = file.file;
-  let fileContainer = document.createElement("div");
-  let fileName = document.createElement("span");
-  let fileClose = document.createElement("span");
-  let fileCloseIcon = document.createElement("i");
+r.on("fileAdded", (file: any) : void => {
+  const uploadContainer = document.getElementById("uploadContainer");
+  const fileInfo = file.file;
+  const fileContainer = document.createElement("div");
+  const fileName = document.createElement("span");
+  const fileClose = document.createElement("span");
+  const fileCloseIcon = document.createElement("i");
 
 
   fileContainer.setAttribute("class", "file");
@@ -38,9 +38,9 @@ r.on("fileAdded", function(file: any) {
   
   fileCloseIcon.addEventListener("click", (event: Event) => {
     event.preventDefault();
-    let close = <HTMLElement>event.target;
-    let parentClose = <HTMLSpanElement>close.parentNode;
-    let fileParent = <HTMLElement>parentClose.parentNode;
+    const close = <HTMLElement>event.target;
+    const parentClose = <HTMLSpanElement>close.parentNode;
+    const fileParent = <HTMLElement>parentClose.parentNode;
     r.files.pop();
     fileParent.remove();
   }, false);
@@ -55,15 +55,15 @@ r.on("fileAdded", function(file: any) {
   
 });
 
-r.on('fileProgress', function(file: any){
-  let progress = Math.floor(file.progress() * 100);
+r.on('fileProgress', (file: any) : void => {
+  const progress = Math.floor(file.progress() * 100);
 });
 
-r.on("fileSuccess", (file, message) => {
+r.on("fileSuccess", (file, message) : void => {
   uploadedFiles.push(JSON.parse(message));
 })
 
-let jsonToFormData = (formData: FormData, data: {}, parentKey: string) : void => {
+const jsonToFormData = (formData: FormData, data: {}, parentKey: string) : void => {
   if (data && typeof data === "object" && !(data instanceof Date) && !(data instanceof File)) {
     Object.keys(data).forEach(key => {
       jsonToFormData(formData, data[key], parentKey ? `${parentKey}[${key}]` : key);
@@ -80,13 +80,13 @@ model.addEventListener("submit", function(event: Event) {
 
 
  
-  let file = uploader.files[0];
-  let formData: any = new FormData(model);
-  let fileUpload = new XMLHttpRequest;
+  const file = uploader.files[0];
+  const formData: any = new FormData(model);
+  const fileUpload = new XMLHttpRequest;
 
   r.upload();
 
-  r.on("complete", () => {
+  r.on("complete", () : void => {
     fileUpload.open("POST", model.getAttribute("action"), true);
     jsonToFormData(formData,  uploadedFiles, "files");
     fileUpload.addEventListener("readystatechange", function() {

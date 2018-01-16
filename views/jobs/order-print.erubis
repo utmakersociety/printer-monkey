@@ -1,6 +1,6 @@
 <div id="print-form-container">
 
-    <form id="print-form" method="post" action="/prints/submit" enctype="multipart/form-data">
+    <form id="print-form" method="post" action="/jobs/order-print" enctype="multipart/form-data">
         <fieldset>
             <legend>Upload a 3D Model</legend>
             <div class="form-control">
