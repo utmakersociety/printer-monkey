@@ -36,6 +36,8 @@ r.on("fileAdded", (file: any) : void => {
   fileCloseIcon.setAttribute("class", "fa fa-times-circle");
   fileClose.setAttribute("class", "file-close");
   
+  // delete remove file from files that can be uploaded and delete
+  // the element when fileClose Icon is clicked
   fileCloseIcon.addEventListener("click", (event: Event) => {
     event.preventDefault();
     const close = <HTMLElement>event.target;
@@ -63,6 +65,7 @@ r.on("fileSuccess", (file, message) : void => {
   uploadedFiles.push(JSON.parse(message));
 })
 
+// loop through properties and transform it into form data to append to the form to send
 const jsonToFormData = (formData: FormData, data: {}, parentKey: string) : void => {
   if (data && typeof data === "object" && !(data instanceof Date) && !(data instanceof File)) {
     Object.keys(data).forEach(key => {
@@ -78,8 +81,6 @@ const jsonToFormData = (formData: FormData, data: {}, parentKey: string) : void 
 model.addEventListener("submit", function(event: Event) {
   event.preventDefault();
 
-
- 
   const file = uploader.files[0];
   const formData: any = new FormData(model);
   const fileUpload = new XMLHttpRequest;
@@ -89,7 +90,7 @@ model.addEventListener("submit", function(event: Event) {
   r.on("complete", () : void => {
     fileUpload.open("POST", model.getAttribute("action"), true);
     jsonToFormData(formData,  uploadedFiles, "files");
-    fileUpload.addEventListener("readystatechange", function() {
+    fileUpload.addEventListener("readystatechange", () => {
         if (fileUpload.readyState == XMLHttpRequest.DONE && fileUpload.status == 200) {
   
         } else if (fileUpload.readyState == XMLHttpRequest.DONE && fileUpload.status == 500) {

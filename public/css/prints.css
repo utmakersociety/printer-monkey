@@ -24,11 +24,18 @@ button {
 .button-secondary {
   background: #6C7A89; }
 
-.table-primary {
-  background: #677E84;
+.table-button, .table-button-primary, .table-secondary {
+  display: inline-block;
+  font-size: 1.3em !important;
   color: #fff;
   padding: 5px 15px;
-  border-radius: 3px; }
+  border-radius: 3px;
+  margin: 0 2px; }
+  .table-button:hover, .table-button-primary:hover, .table-secondary:hover {
+    cursor: pointer; }
+
+.table-button-primary {
+  background: #677E84; }
 
 .table-secondary {
   background: #6C7A89; }
@@ -91,6 +98,15 @@ form {
 
 .grid-1-5 {
   flex: 0 0 20%; }
+
+.warning {
+  background: #F5D76E; }
+
+.danger {
+  background: #f03434; }
+
+.success {
+  background: #00B16A; }
 
 #uploadProgress {
   z-index: 100;

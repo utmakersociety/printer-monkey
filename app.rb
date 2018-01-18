@@ -27,6 +27,7 @@ class PrinterMonkey < Roda
   plugin :flash
   plugin :h
   plugin :multi_route
+  plugin :all_verbs
 
   self.environment = :development
 

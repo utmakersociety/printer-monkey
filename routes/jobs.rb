@@ -9,6 +9,20 @@ PrinterMonkey.route('jobs') do |r|
     end
   end
 
+  r.is Integer do |id|
+    r.get do
+      response['Content-Type'] = 'application/json'
+      Job[id].to_json(:include => :prints_data,
+                      only: [:id, :name, :email, :completed, :updated_at])
+    end
+
+    r.delete do
+      response['Content-Type'] = 'application/json'
+      job = Job[id]
+      job.destroy
+    end
+  end
+
   r.is 'order-print' do
     r.get do
       view 'jobs/order-print', layout: 'jobs/layout', layout_opts: {locals: {title: "Submit 3D Print"}}

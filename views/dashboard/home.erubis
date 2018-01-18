@@ -37,6 +37,9 @@
           <th class="table-controls">
             Completed
           </th>
+          <th class="table-controls">
+            Options
+          </th>
           <th>
           </th>
       </tr>

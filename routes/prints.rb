@@ -56,8 +56,11 @@ PrinterMonkey.route('prints') do |r|
 	      File.open(file, "a") do |target|
 	        # Loop trough the chunks
 	        for i in 1..res_chunk_num
-	          # Select the chunk
-	          chunk = File.open("#{file}.part#{i}", 'r').read
+						# Select the chunk
+						begin
+							chunk = File.open("#{file}.part#{i}", 'r').read
+						rescue
+						end
 	          
 	          # Write chunk into target file
 	          chunk.each_line do |line|
@@ -72,7 +75,7 @@ PrinterMonkey.route('prints') do |r|
 				puts "File saved to #{file}"
 				file_ext = File.extname(file)
 				if file_ext == ".stl" || file_ext == ".STL" && File.file?(file)
-					file_info = Uploader::Upload.process(file)
+					file_info = Upload.process(file)
 					unless file_info.nil?
 						print = Print.create do |p|
 							p.filename = file_info[:filename]

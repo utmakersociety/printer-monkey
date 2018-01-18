@@ -2,6 +2,9 @@
 @import 'components/buttons';
 @import 'components/table';
 @import 'components/flex';
+@import 'mixins';
+@import 'variables';
+
 body {
   background: #fcfcfc;
 }
@@ -72,11 +75,21 @@ body {
   table {
     width: 100%;
     border: none;
+    border-left: 1px solid #cacaca;
   }
 
   thead {
     background: #eee;
   }
+
+  tr {
+    border: none;
+  }
+  
+}
+
+.print-container {
+  padding: 0;
 }
 
 .print-row-hidden {
@@ -103,5 +116,4 @@ body {
 }
 
 .download-link {
-  font-size: 1.3em !important;
 }

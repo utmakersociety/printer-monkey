@@ -19,13 +19,24 @@ button {
   background: #6C7A89;
 }
 
-.table-primary {
-  background: #677E84 ;
+.table-button {
+  display: inline-block;
+  font-size: 1.3em !important;
   color: #fff;
   padding: 5px 15px;
   border-radius: 3px;
+  margin: 0 2px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.table-button-primary {
+  @extend .table-button;
+  background: #677E84 ;
 }
 
 .table-secondary {
+  @extend .table-button;
   background: #6C7A89;
 }
