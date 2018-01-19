@@ -8,6 +8,7 @@ require 'erubis'
 require 'fileutils'
 require 'date'
 require 'securerandom'
+require 'zip'
 require './models'
 require './.env.rb'
 

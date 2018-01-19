@@ -10,6 +10,7 @@ gem 'tilt'
 gem 'eventmachine'
 gem 'bcrypt'
 gem 'puma'
+gem 'rubyzip'
 
 group :production do
 end

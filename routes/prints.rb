@@ -79,7 +79,8 @@ PrinterMonkey.route('prints') do |r|
 					unless file_info.nil?
 						print = Print.create do |p|
 							p.filename = file_info[:filename]
-							p.path = file_info[:path_name]
+							p.path = file_info[:path]
+							p.relative_path = file_info[:relative_path]
 							p.filesize = file_info[:size]
 							p.filetype = file_info[:type]
 						end

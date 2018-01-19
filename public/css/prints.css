@@ -24,20 +24,20 @@ button {
 .button-secondary {
   background: #6C7A89; }
 
-.table-button, .table-button-primary, .table-secondary {
+.table-button, .table-button-primary, .table-button-secondary {
   display: inline-block;
   font-size: 1.3em !important;
   color: #fff;
   padding: 5px 15px;
   border-radius: 3px;
   margin: 0 2px; }
-  .table-button:hover, .table-button-primary:hover, .table-secondary:hover {
+  .table-button:hover, .table-button-primary:hover, .table-button-secondary:hover {
     cursor: pointer; }
 
 .table-button-primary {
   background: #677E84; }
 
-.table-secondary {
+.table-button-secondary {
   background: #6C7A89; }
 
 form {
@@ -102,11 +102,20 @@ form {
 .warning {
   background: #F5D76E; }
 
+.warning-message {
+  color: #F5D76E; }
+
 .danger {
   background: #f03434; }
 
+.danger-message {
+  color: #f03434; }
+
 .success {
   background: #00B16A; }
+
+.success-color {
+  color: #00B16A; }
 
 #uploadProgress {
   z-index: 100;

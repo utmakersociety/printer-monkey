@@ -52,11 +52,16 @@ function addPrints(prints: any) : HTMLTableRowElement {
   const fileHead = document.createElement("th");
   const approved = document.createElement("th");
   const statusHead = document.createElement("th");
-  
 
   nameHead.innerHTML = "Filename";
+  nameHead.setAttribute("class", "letter");
+
   sizeHead.innerHTML = "File Size";
+  sizeHead.setAttribute("class", "number");
+
   filamentHead.innerHTML = "Filament Type";
+  filamentHead.setAttribute("class", "table-controls");
+
   fileHead.innerHTML = "Options";
   approved.innerHTML = "Approved";
   statusHead.innerHTML = "Status";
@@ -77,17 +82,29 @@ function addPrints(prints: any) : HTMLTableRowElement {
     const options = document.createElement("td");
     const downloadLink = document.createElement("a");
     const downloadIcon = document.createElement("i");
-    const currentStatus = document.createElement("td");
     const queueAdd = document.createElement("span");
     const queueIcon = document.createElement("span");
+    const deleteButton = document.createElement("span");
+    const deleteButtonIcon = document.createElement("span");
+    const currentStatus = document.createElement("td");
     const completed = document.createElement("td");
 
 
     filename.innerHTML = prints[i]["filename"];
+    fileSize.setAttribute("class", "number");
     fileSize.innerHTML = formatFileSize(prints[i]["filesize"]);
+    filament.setAttribute("class", "table-controls");
     filament.innerHTML = prints[i]["filament"];
-
     options.setAttribute("class", "table-controls");
+    queueAdd.setAttribute("class", "table-button-secondary");
+    queueAdd.setAttribute("title", "Add to Queue")
+    queueAdd.addEventListener("click", (event: Event) => {
+      
+    }, false);
+    queueIcon.setAttribute("class", "fa fa-plus-circle");
+    queueAdd.appendChild(queueIcon);
+
+
     downloadLink.setAttribute("href", prints[i]["path"]);
     downloadLink.setAttribute("download", prints[i]["filename"]);
     downloadLink.setAttribute("class", "download-link table-button-primary");
@@ -95,18 +112,15 @@ function addPrints(prints: any) : HTMLTableRowElement {
     downloadLink.setAttribute("title", "Download File");
     downloadLink.appendChild(downloadIcon);
     
+    deleteButton.setAttribute("class", "table-button danger");
+    deleteButton.setAttribute("data-id", prints[i]["id"]);
+    deleteButton.setAttribute("title", "Delete Print");
+    deleteButtonIcon.setAttribute("class", "fa fa-trash");
+    deleteButton.appendChild(deleteButtonIcon);
 
-    queueAdd.setAttribute("class", "table-secondary");
-    queueIcon.setAttribute("class", "fa fa-plus-circle");
-    queueAdd.appendChild(queueIcon);
-
-    queueAdd.addEventListener("click", (event: Event) => {
-
-    }, false);
-
-    
     options.appendChild(queueAdd);
     options.appendChild(downloadLink);
+    options.appendChild(deleteButton);
 
     currentStatus.setAttribute("class", "table-controls");
     switch (prints[i]["status"]) {
@@ -126,9 +140,11 @@ function addPrints(prints: any) : HTMLTableRowElement {
         currentStatus.innerHTML = "Picked up";
         break;
       default:
+        currentStatus.setAttribute("class", "status-message danger-message table-controls");
         currentStatus.innerHTML = "Not Approved";
         break;
     }
+
     print.appendChild(filename);
     print.appendChild(fileSize);
     print.appendChild(filament);
@@ -155,18 +171,24 @@ function generateTable(data: any) {
     const id = document.createElement("td");
     const name = document.createElement("td");
     const numOfPrints = document.createElement("td");
-
     const completed = document.createElement("td");
     const completedIcon = document.createElement("i");
-    
     const options = document.createElement("td");
+    const downloadAllButton = document.createElement("span");
+    const downloadAllIcon = document.createElement("span");
     const deleteButton = document.createElement("span");
     const deleteIcon = document.createElement("span");
 
     options.setAttribute("class", "table-controls");
+
+    downloadAllButton.setAttribute("class", "table-button-secondary");
+    downloadAllButton.setAttribute("title", "Download as ZIP")
+    downloadAllIcon.setAttribute("class", "fa fa-file-archive-o");
+    downloadAllButton.appendChild(downloadAllIcon);
+
     deleteButton.setAttribute("data-id", data[i]["id"]);
     deleteButton.setAttribute("class", "table-button danger");
-    deleteButton.setAttribute("title", "Delete")
+    deleteButton.setAttribute("title", "Delete Job");
     deleteIcon.setAttribute("class", "fa fa-trash");
     deleteButton.appendChild(deleteIcon);
 
@@ -190,6 +212,7 @@ function generateTable(data: any) {
       row.remove();
     }, false);
 
+    options.appendChild(downloadAllButton);
     options.appendChild(deleteButton);
     
     const arrow = document.createElement("td");

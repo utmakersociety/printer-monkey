@@ -18,11 +18,16 @@ module Upload
         filename: File.basename(file),
         type: "application/sla",
         size: File.size(target),
-        path_name: relative_path,
+        relative_path: relative_path,
+        path: target,
         uploaded: uploaded
       }
     else
       nil
     end
+  end
+
+  def create_zip(files)
+    zipfile_name = SecureRandom.urlsafe_base64(nil, false).strip
   end
 end

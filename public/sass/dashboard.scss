@@ -76,6 +76,7 @@ body {
     width: 100%;
     border: none;
     border-left: 1px solid #cacaca;
+    border-right: 1px solid #cacaca;
   }
 
   thead {
@@ -83,6 +84,11 @@ body {
   }
 
   tr {
+    border: none;
+    border-bottom: 1px solid #cacaca;
+  }
+
+  tr:last-child {
     border: none;
   }
   
@@ -115,5 +121,7 @@ body {
   }
 }
 
-.download-link {
+.status-message {
+  font-weight: bold;
+  text-transform: uppercase;
 }
