@@ -41,32 +41,45 @@ button {
 .table-button-secondary {
   background: #6C7A89; }
 
-form {
+.form {
   font-size: 1.6em; }
-  form legend {
+  .form legend {
     font-size: 2em;
     margin: 5% 0 2%; }
-  form input {
-    font-family: 'Montserrat', san-serif; }
-  form fieldset {
-    border: none; }
-  form input[type="text"] {
-    width: 100%;
-    padding: 8px; }
-  form input[type="email"] {
-    width: 100%;
-    padding: 8px; }
-  form input[type="file"] {
-    display: none; }
-  form select {
+  .form select {
     padding: 5px 8px;
     font-family: 'Montserrat', san-serif; }
-  form label {
-    display: block;
-    padding-bottom: 5px; }
+
+.modal-form {
+  font-size: 1.3em;
+  text-align: left; }
+  .modal-form title {
+    display: block; }
+  .modal-form select {
+    padding: 3px 5px;
+    font-family: 'Montserrat', san-serif; }
+
+form input {
+  font-family: 'Montserrat', san-serif; }
+form fieldset {
+  border: none !important; }
+form input[type="text"] {
+  width: 100%;
+  padding: 8px; }
+form input[type="email"] {
+  width: 100%;
+  padding: 8px; }
+form input[type="file"] {
+  display: none; }
+form label {
+  display: block;
+  padding-bottom: 5px; }
 
 .form-control {
   margin: 20px 0; }
+
+.modal-form-control {
+  margin: 10px 0; }
 
 .grid {
   height: 100%;

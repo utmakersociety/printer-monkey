@@ -36,8 +36,8 @@ r.on("fileAdded", (file: any) : void => {
   fileCloseIcon.setAttribute("class", "fa fa-times-circle");
   fileClose.setAttribute("class", "file-close");
   
-  // delete remove file from files that can be uploaded and delete
-  // the element when fileClose Icon is clicked
+  // delete removed file from resumable files[]
+  // and remove the element when fileClose Icon is clicked
   fileCloseIcon.addEventListener("click", (event: Event) => {
     event.preventDefault();
     const close = <HTMLElement>event.target;
@@ -57,6 +57,7 @@ r.on("fileAdded", (file: any) : void => {
   
 });
 
+// format file progress
 r.on('fileProgress', (file: any) : void => {
   const progress = Math.floor(file.progress() * 100);
 });
@@ -74,7 +75,6 @@ const jsonToFormData = (formData: FormData, data: {}, parentKey: string) : void 
   } else {
     const value: any = data === null ? "" : data;
     formData.append(parentKey, value);
-    console.log(`${parentKey}: ${value}`);
   }
 };
 

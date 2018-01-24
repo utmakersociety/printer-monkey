@@ -1,5 +1,5 @@
 import { Helper } from "./helper";
-import { Overlay } from "./overlay";
+import { Overlay, QueueModal } from "./overlay";
 
 export class Print {
   public row: HTMLTableRowElement;
@@ -12,6 +12,8 @@ export class Print {
   public completed;
 
   constructor(printInfo: any) {
+    // set initalize some properties and set table cells that won't be changed much
+    // but might need to be seperated at a later date
     this.printInfo = printInfo;
     this.row = document.createElement("tr");
     this.filename = document.createElement("td");
@@ -28,7 +30,7 @@ export class Print {
     this.filament.innerHTML = this.printInfo["filament"];
   }
 
-  public generateOptions = () => {
+  public addOptions = () => {
     const downloadLink = document.createElement("a");
     const downloadIcon = document.createElement("i");
     const queueAdd = document.createElement("span");
@@ -37,11 +39,14 @@ export class Print {
     const deleteButtonIcon = document.createElement("span");
 
     this.options.setAttribute("class", "table-controls");
+    // create a queue button for each print and then add an click event listener
+    // with an overlay instance that will be removed when closed
     queueAdd.setAttribute("class", "table-button-secondary");
     queueAdd.setAttribute("title", "Add to Queue")
     queueAdd.addEventListener("click", (event: Event) => {
-      const overlay = new Overlay("Add to Queue");
+      const overlay = new QueueModal("Add to Queue");
       overlay.generateModal();
+      overlay.generateForm();
       overlay.create();
     }, false);
     queueIcon.setAttribute("class", "fa fa-plus-circle");
@@ -65,6 +70,7 @@ export class Print {
   }
 
   public formatStatus() {
+    // TODO: Add other status colors
     this.currentStatus.setAttribute("class", "table-controls");
     switch (this.printInfo["status"]) {
       case 1:

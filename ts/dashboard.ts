@@ -69,7 +69,7 @@ function addPrints(prints: any) : HTMLTableRowElement {
 
   for (let i = 0; i < prints.length; i++) {
     const print = new Print(prints[i]);
-    print.generateOptions();
+    print.addOptions();
     print.formatStatus();
     print.generate();
     printsBody.appendChild(print.row);

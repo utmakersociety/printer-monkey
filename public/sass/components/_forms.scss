@@ -1,4 +1,4 @@
-form {
+.form  {
     font-size: 1.6em;
 
     legend {
@@ -6,12 +6,33 @@ form {
         margin: 5% 0 2%;
     }
 
+    select {
+        padding: 5px 8px;
+        font-family: 'Montserrat', san-serif;
+    }
+}
+
+.modal-form {
+    font-size: 1.3em;
+    text-align: left;
+
+    title {
+        display: block;
+    }
+
+    select {
+        padding: 3px 5px;
+        font-family: 'Montserrat', san-serif;
+    }
+}
+
+form {
     input {
         font-family: 'Montserrat', san-serif;
     }
 
     fieldset {
-        border: none;
+        border: none !important;
     }
 
     input[type="text"] {
@@ -28,10 +49,7 @@ form {
         display: none;
     }
 
-    select {
-        padding: 5px 8px;
-        font-family: 'Montserrat', san-serif;
-    }
+
 
     label {
         display: block;
@@ -41,6 +59,10 @@ form {
 
 .form-control {
     margin: 20px 0;
+}
+
+.modal-form-control {
+    margin: 10px 0;
 }
 
 
