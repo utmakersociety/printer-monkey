@@ -76,6 +76,7 @@ PrinterMonkey.route('prints') do |r|
 				file_ext = File.extname(file)
 				if file_ext == ".stl" || file_ext == ".STL" && File.file?(file)
 					file_info = Upload.process(file)
+					pp file_info[:relative_path]
 					unless file_info.nil?
 						print = Print.create do |p|
 							p.filename = file_info[:filename]

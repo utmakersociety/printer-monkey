@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
     </head>
-    <body>
+    <body id="dashboard">
         <div id="container">
             <div id="navigation">
                 <nav id="dashboard-nav">

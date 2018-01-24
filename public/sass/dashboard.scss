@@ -5,11 +5,41 @@
 @import 'mixins';
 @import 'variables';
 
+#overlay {
+  @include z-index-5;
+  visibility: hidden;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width:100%;
+  height:100%;
+  text-align:center;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+#overlay .modal {
+  @include z-index-6;
+  width: 300px;
+  margin: 100px auto;
+  background-color: #fff;
+  border:1px solid #000;
+  padding:15px;
+  text-align:center;
+}
+
 body {
   background: #fcfcfc;
 }
 
+#navigation {
+  @include z-index-2;
+  height: 100%;
+  width: 150px;
+  position: fixed;
+}
+
 #dashboard-nav {
+  @include z-index-3;
   background: #ebebeb;
   position: fixed;
   border-right: 1px solid #cacaca;
@@ -18,6 +48,7 @@ body {
 }
 
 #nav-menu {
+  @include z-index-4;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -51,6 +82,13 @@ body {
   }
 }
 
+#content {
+  @include z-index-2;
+  background: #fcfcfc;
+  padding: 20px;
+  margin-left: 15%;
+}
+
 #dashboardTitle {
   font-weight: normal;
   text-transform: uppercase;
@@ -65,6 +103,10 @@ body {
     font-size: 1.6em;
     font-weight: normal;
   }
+}
+
+#jobsContainer {
+  @include z-index-3;
 }
 
 .table-dropdown {
@@ -100,12 +142,6 @@ body {
 
 .print-row-hidden {
   display: none;
-}
-
-#content {
-  background: #fcfcfc;
-  padding: 20px;
-  margin-left: 15%;
 }
 
 .prints-table {

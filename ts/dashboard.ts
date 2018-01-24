@@ -1,15 +1,17 @@
+import { Helper } from "./helper";
+import { Print } from "./print";
+
 "use strict";
 
 const jobs = document.getElementById("jobs");
-
 
 // watch job table and wait for user to click arrow
 // then generate a child rows with associated data
 jobs.addEventListener("click", (event) => {
   const arrow = <HTMLSpanElement>event.target;
-  if (arrow.tagName === "span" || arrow.tagName === "SPAN") {
+  if ((arrow.tagName === "span" || arrow.tagName === "SPAN") && arrow.getAttribute("data-id") !== null) {
     const printTable = document.querySelector("tr.prints-row[data-job-id='" + arrow.getAttribute("data-id") + "']");
-    if (arrow.getAttribute("data-clicked") === "false") {
+    if (arrow.getAttribute("data-clicked") === "false" && printTable !== null) {
       arrow.setAttribute("data-clicked" ,"true");
       arrow.setAttribute("class", "fa fa-chevron-up table-dropdown");
       printTable.setAttribute("class", "prints-row print-row");
@@ -21,30 +23,22 @@ jobs.addEventListener("click", (event) => {
   }
 });
 
-function formatFileSize(bytes: any) {
-  const exp = Math.log(bytes) / Math.log(1024) | 0;
-  const result = (bytes / Math.pow(1024, exp)).toFixed(2);
-  const unit = exp == 0 ? 'bytes': 'KMGTPEZY'[exp - 1] + 'B';
-  return `${result} ${unit}` ;
-}
-
 // take the prints related to a job and populate a hidden table
 // with print information for 3d models
 function addPrints(prints: any) : HTMLTableRowElement {
   const printRow = document.createElement("tr");
-  printRow.setAttribute("class", "print-row-hidden prints-row");
-  printRow.setAttribute("data-hidden", "false");
-
-  // tables inside of a table are only valid inside a <td> so create one
   const printContainer = document.createElement("td");
-  printContainer.setAttribute("class", "print-container");
-  printContainer.setAttribute("colspan", "6");
-  
   const printsTable = document.createElement("table");
-  printsTable.setAttribute("class", "prints-table");
-
   const printsHead = document.createElement("thead");
   const printsBody = document.createElement("tbody");
+
+  printRow.setAttribute("class", "print-row-hidden prints-row");
+  printRow.setAttribute("data-hidden", "false");
+  // tables inside of a table are only valid inside a <td> so create one
+  
+  printContainer.setAttribute("class", "print-container");
+  printContainer.setAttribute("colspan", "6");
+  printsTable.setAttribute("class", "prints-table");
 
   const nameHead = document.createElement("th");
   const sizeHead = document.createElement("th");
@@ -74,86 +68,11 @@ function addPrints(prints: any) : HTMLTableRowElement {
   printsHead.appendChild(statusHead);
 
   for (let i = 0; i < prints.length; i++) {
-    const print = document.createElement("tr");
-
-    const filename = document.createElement("td");
-    const fileSize = document.createElement("td");
-    const filament = document.createElement("td");
-    const options = document.createElement("td");
-    const downloadLink = document.createElement("a");
-    const downloadIcon = document.createElement("i");
-    const queueAdd = document.createElement("span");
-    const queueIcon = document.createElement("span");
-    const deleteButton = document.createElement("span");
-    const deleteButtonIcon = document.createElement("span");
-    const currentStatus = document.createElement("td");
-    const completed = document.createElement("td");
-
-
-    filename.innerHTML = prints[i]["filename"];
-    fileSize.setAttribute("class", "number");
-    fileSize.innerHTML = formatFileSize(prints[i]["filesize"]);
-    filament.setAttribute("class", "table-controls");
-    filament.innerHTML = prints[i]["filament"];
-    options.setAttribute("class", "table-controls");
-    queueAdd.setAttribute("class", "table-button-secondary");
-    queueAdd.setAttribute("title", "Add to Queue")
-    queueAdd.addEventListener("click", (event: Event) => {
-      
-    }, false);
-    queueIcon.setAttribute("class", "fa fa-plus-circle");
-    queueAdd.appendChild(queueIcon);
-
-
-    downloadLink.setAttribute("href", prints[i]["path"]);
-    downloadLink.setAttribute("download", prints[i]["filename"]);
-    downloadLink.setAttribute("class", "download-link table-button-primary");
-    downloadIcon.setAttribute("class", "fa fa-download");
-    downloadLink.setAttribute("title", "Download File");
-    downloadLink.appendChild(downloadIcon);
-    
-    deleteButton.setAttribute("class", "table-button danger");
-    deleteButton.setAttribute("data-id", prints[i]["id"]);
-    deleteButton.setAttribute("title", "Delete Print");
-    deleteButtonIcon.setAttribute("class", "fa fa-trash");
-    deleteButton.appendChild(deleteButtonIcon);
-
-    options.appendChild(queueAdd);
-    options.appendChild(downloadLink);
-    options.appendChild(deleteButton);
-
-    currentStatus.setAttribute("class", "table-controls");
-    switch (prints[i]["status"]) {
-      case 1:
-        currentStatus.innerHTML = "Ready to Print";
-        break;
-      case 2:
-        currentStatus.innerHTML = "In Queue";
-        break;
-      case 3:
-        currentStatus.innerHTML = "Printing";
-        break;
-      case 4:
-        currentStatus.innerHTML = "Printed";
-        break;
-      case 5:
-        currentStatus.innerHTML = "Picked up";
-        break;
-      default:
-        currentStatus.setAttribute("class", "status-message danger-message table-controls");
-        currentStatus.innerHTML = "Not Approved";
-        break;
-    }
-
-    print.appendChild(filename);
-    print.appendChild(fileSize);
-    print.appendChild(filament);
-    print.appendChild(options);
-    print.appendChild(completed);
-    print.appendChild(currentStatus);
-
-
-    printsBody.appendChild(print);
+    const print = new Print(prints[i]);
+    print.generateOptions();
+    print.formatStatus();
+    print.generate();
+    printsBody.appendChild(print.row);
   }
 
   printsTable.appendChild(printsHead);

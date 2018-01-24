@@ -1,3 +1,5 @@
+@import 'mixins';
+
 html {
     height: 100%;
     font: 62.5%/1.5 'Montserrat', san-serif;
@@ -9,5 +11,6 @@ body {
 }
 
 #container {
+    @include z-index-1;
     position: relative;
 }

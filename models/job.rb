@@ -16,6 +16,7 @@ class Job < Sequel::Model(:jobs)
         id: p.id,
         filename: p.filename,
         path: p.path,
+        relative_path: p.relative_path,
         filesize: p.filesize,
         filament: p.filament,
         approved: p.completed,
