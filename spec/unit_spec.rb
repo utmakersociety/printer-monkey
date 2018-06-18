@@ -1,24 +1,23 @@
 require 'rspec/core'
 require 'rspec/expectations'
 
-describe Example do
+describe User do
   before(:each) do
-    @example = Example.create(:name => 'Moose')
+    @user = User.create(:name => 'Moose')
   end
 
   it 'associations should be correct' do
-    expect(@example.example_associations).to eq []
+    expect(@user.roles).to eq []
   end
 end
 
-describe ExampleAssociation do
-
+describe Role do
   before(:each) do
-    @example = Example.create(:name => 'Moose')
-    @example_associations = ExampleAssociation.create(:name => 'Cool', :example_id => @example.id)
+    @role = Role.create(:name => 'Moose')
+    @role = Role.create(:name => 'Cool', :user_id => @user.id)
   end
 
   it 'associations should be correct' do
-    expect(@example_associations.example.class).to eq Example 
+    expect(@role.user.class).to eq User 
   end
 end

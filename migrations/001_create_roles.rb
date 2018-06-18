@@ -3,6 +3,7 @@ Sequel.migration do
     create_table(:roles) do
       primary_key :id
       String :name, :null => false
+      foreign_key :user_id
     end
   end
 
