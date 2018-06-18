@@ -11,4 +11,4 @@ run lambda { |env|
 }
 
 use Rack::Deflater
-run PrinterMonkey
+run PrinterPilot

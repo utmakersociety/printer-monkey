@@ -90,13 +90,13 @@ model.addEventListener("submit", function(event: Event) {
   r.on("complete", () : void => {
     fileUpload.open("POST", model.getAttribute("action"), true);
     jsonToFormData(formData,  uploadedFiles, "files");
-    fileUpload.addEventListener("readystatechange", () => {
-        if (fileUpload.readyState == XMLHttpRequest.DONE && fileUpload.status == 200) {
-  
-        } else if (fileUpload.readyState == XMLHttpRequest.DONE && fileUpload.status == 500) {
-  
-        }
-    }, false);
+    fileUpload.onload = () => {
+      if (fileUpload.status === 200) {
+
+      } else  {
+        
+      }
+    }
   
     fileUpload.send(formData);
   });

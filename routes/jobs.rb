@@ -1,4 +1,4 @@
-PrinterMonkey.route('jobs') do |r|
+PrinterPilot.route('jobs') do |r|
   r.is do
     r.get do
       response['Content-Type'] = "application/json"

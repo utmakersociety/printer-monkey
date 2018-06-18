@@ -1,0 +1,17 @@
+langauge: ruby
+sudo: enabled
+before_install:
+  sudo apt update
+  sudo apt install -y libsodium23
+  sudo apt install -y libsodium-dev
+install:
+  bundle --path vendor
+  bundle --binstubs
+brefore_script:
+  bin/rake sqlite:migrate
+script: 
+  bin/rspec --format doc
+after_script:
+  bin/rake sqlite:delete
+rvm:
+  - 2.4.1

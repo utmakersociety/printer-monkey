@@ -1,18 +1,17 @@
 Sequel.migration do
   up do
-    create_table(:users) do
+    create_table(:uploads) do
       primary_key :id
-      String :username, :null => false
       String :name, :null => false
       String :email, :null => false
-      String :password, :null => false
+      FalseClass :completed, :default => false
       DateTime :created_at
       DateTime :updated_at
-      foreign_key :role_id
+      foreign_key :user_id, :null => true
     end
   end
 
   down do
-    drop_table(:users)
+    drop_table(:jobs)
   end
 end

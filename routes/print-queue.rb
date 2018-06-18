@@ -1,7 +1,7 @@
-PrinterMonkey.route('print-queue') do |r|
+PrinterPilot.route('print-queue') do |r|
   r.is do
     r.get do
-      PrinterQueue..to_json
+      PrinterQueue.to_json
     end
   end
 

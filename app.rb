@@ -12,7 +12,7 @@ require 'zip'
 require './models'
 require './.env.rb'
 
-class PrinterMonkey < Roda
+class PrinterPilot < Roda
   plugin :default_headers,
     'Content-Type' => 'text/html',
     #'Content-Security-Policy' => "default-src 'self'",

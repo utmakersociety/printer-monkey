@@ -22,7 +22,8 @@ def command_args():
     args = parse.parse_args(sys.argv[index:]).__dict__
     
     return args
-    
+
+# clear the scene by delete lamp and default cube
 def delete_by_obj_name(name):
     scene = context.scene
     for ob in scene.objects:
@@ -54,7 +55,7 @@ def open_mesh(path, scale=0.9):
     ops.object.origin_set(type="GEOMETRY_ORIGIN")
     return mesh
 
-mesh = open_mesh("C:/\/Users/\/mille/\/Documents/\/Projects/\/cadian_laspistol.stl")
+mesh = open_mesh("")
 
 
 
